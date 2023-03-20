@@ -1,9 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from hubspot import HubSpot
-from hubspot.crm.contacts import ApiException
 
-import json
 import hubspot
 
 # Create your views here.
@@ -18,7 +15,6 @@ def get_leads(request):
             leads.append(lead.to_dict())
         # return JsonResponse({'leads': leads})
         return JsonResponse(leads, safe=False)
-    except ApiException as e:
-        error_message = str(e)
-        return JsonResponse(f'Error: {error_message}')
+    except:
+        return JsonResponse(f'Error: Hubo un error')
 
