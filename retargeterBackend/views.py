@@ -10,7 +10,7 @@ def get_leads(request):
         api_client = HubSpot(access_token='pat-na1-a99cdf8e-0af7-401f-8396-6a25f8f582ee')
 
         all_contacts = api_client.crm.contacts.get_all(
-            properties=["hs_lead_status", "phone", "firstname", "lastname", "hubspot_owner_id", "createdate"])
+            properties=["hs_lead_status", "phone", "firstname", "lastname", "hubspot_owner_id", "createdate", "habitaciones"])
         leads = []
         for lead in all_contacts:
             leads.append(lead.to_dict())
